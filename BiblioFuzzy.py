@@ -1,3 +1,3 @@
 
-def trapecioAbiertoDer():
+def trapecioAbiertoDer(u, a, b):    
     pass
