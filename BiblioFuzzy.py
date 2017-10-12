@@ -64,7 +64,7 @@ class FuncMembresia:
             return 0.0
         elif a <= u and u < b:
             return (1 + cos(((u - b) / (b - a)) * pi)) / 2.0
-        elif a <= u and u <= b:
+        elif b <= u and u <= c:
             return (1 + cos(((b- u) / (c - b)) * pi)) / 2.0
 
     @staticmethod
@@ -118,6 +118,6 @@ class ImplFuzzy:
 
     @staticmethod
     def implica_godel(ma_x, mb_y):
-        if ma_x < mb_y:
+        if ma_x <= mb_y:
             return 1
         return mb_y
