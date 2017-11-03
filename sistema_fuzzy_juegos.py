@@ -113,19 +113,21 @@ class SistemaFuzzyJuegos:
                 puntos += 1
         return puntos/len(genero)
 
-    def inferir_atributos_difusos_cualitativos(self, duracion="", estrategia="", accion="", 
-                                                dificultat="", exploracion="", sangre=""):
+    def inferir_atributos_difusos_cualitativos(self, duracion="", estrategia="", accion="",
+                                               dificultat="", exploracion="", sangre=""):
         caracteristicas = [duracion, estrategia, accion, dificultat, exploracion, sangre]
-        pert_genero = {"RPG": 0, "Plataformas": 0, "Peleas": 0, "Disparos": 0}
-        
+        pert_genero = {"RPG": 0,
+                       "Plataformas": 0,
+                       "Peleas": 0,
+                       "Disparos": 0}
         pert_genero["RPG"] = self.calc_pertenencia_genero(CONJUNTO_RPG, caracteristicas)
-        pert_genero["Plataformas"] = self.calc_pertenencia_genero(CONJUNTO_PLATAFORMAS, caracteristicas)
+        pert_genero["Plataformas"] = self.calc_pertenencia_genero(CONJUNTO_PLATAFORMAS,
+                                                                  caracteristicas)
         pert_genero["Peleas"] = self.calc_pertenencia_genero(CONJUNTO_PELEAS, caracteristicas)
         pert_genero["Disparos"] = self.calc_pertenencia_genero(CONJUNTO_DISPAROS, caracteristicas)
 
         pert_mayor = "RPG"
         for key in pert_genero.keys():
             if pert_genero.get(key) > pert_genero.get(pert_mayor):
-                pert_mayor = key
-
+                pert_mayor = key        
         return pert_mayor
